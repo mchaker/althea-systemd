@@ -2,7 +2,7 @@
 systemd scripts for running an althea validator
 
 ## folder: `althea-scripts`
-Place the scripts from the `althea-scripts` folder into the folder where you want to keep your althea scripts.
+Place the scripts from the `althea-scripts` folder into the folder where you want to keep your althea run scripts (not the systemd service files, those are separate).
 
 Maybe that's in `/home/altheauser/althea-scripts`, maybe it's `/etc/althea/scripts`, whatever. You decide. :)
 
