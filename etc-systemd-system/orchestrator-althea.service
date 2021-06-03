@@ -1,0 +1,20 @@
+[Unit]
+Description=Althea Gravity Orchestrator
+Requires=althea.service
+Requires=geth.service
+
+[Service]
+#LogLevelMax=6
+User=altheauser
+#Environment="RUST_LOG=INFO"
+
+# get parameters for gbt from the current althea github instructions
+ExecStart=/usr/bin/gbt -a althea orchestrator \
+        --fees 125000ufootoken \
+        --gravity-contract-address "GRAVITY_ADDRESS_HERE"
+Restart=always
+RestartSec=5
+LimitNOFILE=1048575 # found from running: ulimit -Hn
+
+[Install]
+WantedBy=multi-user.target

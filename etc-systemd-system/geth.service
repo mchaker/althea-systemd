@@ -1,0 +1,13 @@
+[Unit]
+Description=Geth
+
+[Service]
+#LogLevelMax=6
+User=altheauser
+ExecStart=/usr/bin/geth --syncmode "light" --goerli --http --cache 16
+Restart=always
+RestartSec=5
+LimitNOFILE=1048575 # found from running: ulimit -Hn
+
+[Install]
+WantedBy=multi-user.target
