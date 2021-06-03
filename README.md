@@ -18,3 +18,11 @@ If you don't want to load the althea database and files into memory, change the 
 Place the scripts from the `etc-systemd-system` folder into `/etc/systemd/system/`, or wherever you keep your `systemd` scripts.
 
 Then, run `sudo systemctl enable althea.service`, and do the same `sudo systemctl enable` for `geth.service` and `orchestrator-althea.service`
+
+After enabling the systemd services, run the following:
+
+1. Start Althea: `sudo systemctl start althea.service`
+1. Start Geth: `sudo systemctl start geth.service`
+1. Start the Orchestrator: `sudo systemctl start orchestrator-althea.service`
+
+You can check the status of all the services with: `sudo systemctl status althea.service geth.service orchestrator-althea.service` (all statuses for all 3 services will show up, navigate with the arrow keys, press `q` to quit the status view)
