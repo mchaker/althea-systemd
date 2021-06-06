@@ -1,8 +1,11 @@
 # althea-systemd
 systemd scripts for running an althea validator
 
+## First do this: [althea validator manual setup](https://github.com/althea-net/althea-chain/blob/main/docs/althea/althea-testnet-docs/setting-up-a-validator-manual.md)
+
 ## Compatibility note
-These scripts were developed on and tested on one of the most recent versions of Ubuntu Server (specifically Ubuntu Server 20.10).
+* These scripts were developed on and tested on one of the most recent versions of Ubuntu Server (specifically Ubuntu Server 20.10).
+* Read the scripts (they are short) and adjust the binary locations and folders to match your setup
 
 ## folder: `althea-scripts`
 Place the scripts from the `althea-scripts` folder into the folder where you want to keep your althea run scripts (not the systemd service files, those are separate).
