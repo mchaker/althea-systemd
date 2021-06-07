@@ -172,20 +172,20 @@ Inbound (**Validator**) (⚠️ yes the validator needs specific ports open too!
 
 _Notes about values in these config files:_
 
-* `external_address` is an IP address or FQDN
+* `external_address` is an IP address or FQDN (FQDN/DNS records are recommended, since you can specify both IPv4 (A) and IPv6 (AAAA) records for the same name)
 * `private_peer_ids` can be acquired by running `althea tendermint show-node-id` on your **validator**, example: `23eeeeee84bbb701a34b1fffff09e79ccccc3aaa`
 * `persistent_peers` are _full addresses_, example: `23eeeeee84bbb701a34b1fffff09e79ccccc3aaa@althea.domain.net:26656,23effffe84bbbccca34b1aaaaa09e79bbbbb3ccc@althea.domain2.net:26656`
-* `unconditional_peer_ids` are Tendermint node IDs (hex values), which can be acquired by running `althea tendermint show-node-id` on each sentry/validator. Example: `23eeeeee84bbb701a34b1fffff09e79ccccc3aaa,23effffe84bbbccca34b1aaaaa09e79bbbbb3ccc`
+* `unconditional_peer_ids` are Tendermint node IDs (hex values), which can be acquired by running `althea tendermint show-node-id` on **each** sentry/validator. Example: `23eeeeee84bbb701a34b1fffff09e79ccccc3aaa,23effffe84bbbccca34b1aaaaa09e79bbbbb3ccc`
 
 #### On your **sentry**, you need to set the following settings in `~/.althea/config/config.toml`:
 
 ```toml
 pex = true
 max_open_connections = 200
-external_address = "YOUR_SENTRY_PUBLIC_IP_OR_FQDN:26656"
+external_address = "THIS_SENTRY_PUBLIC_IP_OR_FQDN:26656" # The public IP address or FQDN of the current sentry you are configuring
 private_peer_ids = "TENDERMINT_NODE_ID_OF_VALIDATOR" # Remember, this is a hex value, not an IP address
 laddr = "tcp://0.0.0.0:26667" # This is changed from the default (26657) because we will use nginx for DoS prevention later in these instructions
-persistent_peers = "YOUR_VALIDATOR_AND_SENTRIES_FULL_ADDRESSES" # These are combined hex values AND IP addresses/FQDNs!
+persistent_peers = "YOUR_VALIDATOR_AND_ALL_SENTRIES_FULL_ADDRESSES" # These are combined hex values AND IP addresses/FQDNs!
 unconditional_peer_ids = "YOUR_VALIDATORS_AND_SENTRIES" # NOTE: These are TENDERMINT NODE IDs (hex value), NOT IP ADDRESSES!
 prometheus = true
 prometheus_listen_addr = ":26660"
@@ -205,7 +205,7 @@ Stop the althea service/binary and edit `~/.althea/config/config.toml`, then sta
 pex = false
 max_open_connections = 3
 external_address = ""
-unconditional_peer_ids = "YOUR_VALIDATORS_AND_SENTRIES" # NOTE: These are TENDERMINT NODE IDs (hex value), NOT IP ADDRESSES!
+unconditional_peer_ids = "YOUR_VALIDATORS_AND_ALL_SENTRIES" # NOTE: These are TENDERMINT NODE IDs (hex value), NOT IP ADDRESSES!
 prometheus = true
 prometheus_listen_addr = ":26660"
 ```
