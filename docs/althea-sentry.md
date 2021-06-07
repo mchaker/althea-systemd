@@ -2,7 +2,7 @@
 
 **NOTE:** This guide assumes that you already have an Althea Validator set up and running. If you do not have that yet, [follow these instructions to set up an Althea Validator node](https://github.com/althea-net/althea-chain/blob/main/docs/althea/althea-testnet-docs/setting-up-a-validator-manual.md).
 
-➡️ This guide also assumes that you are not yet using the `althea-systemd` scripts in this repo (later steps of this guide edit files in `~/.althea/`, where if you are using the `althea-systemd` scripts, you would have to edit files in `~/.althea-bkp/` (or wherever you specified your cold storage directory).
+➡️ This guide also assumes that you are not yet using the `althea-systemd` scripts in this repo (later steps of this guide edit files in `~/.althea/`, where if you **are** using the `althea-systemd` scripts, you would have to edit files in `~/.althea-bkp/` (or wherever you specified your cold storage directory)).
 
 _Adapted from [Paul Lovette](https://github.com/lightiv)'s [Linux Install guide](https://github.com/lightiv/SkyNet/wiki/Ubuntu-Linux-Install-Guide) and his [Akash Sentry setup guide](https://github.com/lightiv/SkyNet/wiki/Validator-Sentry-Setup-With-Best-Practice)_
 
