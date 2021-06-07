@@ -204,7 +204,7 @@ Stop the althea service/binary and edit `~/.althea/config/config.toml`, then sta
 ```toml
 pex = false
 max_open_connections = 3
-external_address = "YOUR_SENTRY_PUBLIC_IP_OR_FQDN:26656"
+external_address = ""
 unconditional_peer_ids = "YOUR_VALIDATORS_AND_SENTRIES" # NOTE: These are TENDERMINT NODE IDs (hex value), NOT IP ADDRESSES!
 prometheus = true
 prometheus_listen_addr = ":26660"
@@ -370,6 +370,10 @@ Enable and start the new service:
 sudo systemctl enable althea-sentry.service
 sudo systemctl start althea-sentry.service
 ```
+
+You can check how many other nodes are connecting to your sentry with:
+
+`sudo netstat -na | grep 26656`
 
 ---
 
