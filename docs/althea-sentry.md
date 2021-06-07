@@ -82,8 +82,33 @@ Check if the firewall `ufw` is enabled: `sudo ufw status`
 
 Disable the firewall at first, make modifications, then bring it back up.
 
+So, first disable the firewall:
+
 `sudo ufw disable`
 
-Set the defaults for incoming/outgoing ports
+Set the defaults for incoming/outgoing ports:
+
+`sudo ufw default deny incoming`
+`sudo ufw default allow outgoing`
+
+Open up the SSH port:
+
+`sudo ufw allow from any to any port 22 proto tcp`
+
+Double-check the port you are opening for ssh is the same as what is set in `/etc/ssh/sshd_config`. You can change the ssh port in `/etc/ssh/sshd_config` if you like, just remember to open the port on the firewall as well.
+
+Check the ssh port:
+
+`cat /etc/ssh/sshd_config | grep Port`
+
+Turn the firewall back on:
+
+`sudo ufw enable`
+
+`sudo ufw status verbose`
+
+Make sure you see the ssh port in the allowed rules!
+
+Finally, reboot: `sudo reboot`
 
 # Part 2: Validator Sentry Setup
