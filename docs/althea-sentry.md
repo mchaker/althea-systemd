@@ -46,11 +46,11 @@ Sample values for the below commands:
 
 * `USERNAME`: `altheasentry`
 
-`sudo useradd USERNAME`
-
-`sudo passwd USERNAME`
-
-`usermod -aG sudo USERNAME`
+```shell
+sudo useradd USERNAME
+sudo passwd USERNAME
+usermod -aG sudo USERNAME
+```
 
 Grant `sudo` permission scope to the new user:
 
@@ -62,9 +62,10 @@ Add an entry for the new user under "User privilege specification":
 
 Add the new user's home directory and set the permissions on that directory:
 
-`sudo mkdir /home/USERNAME/`
-
-`sudo chown -R USERNAME:USERNAME /home/USERNAME/`
+```shell
+sudo mkdir /home/USERNAME/
+sudo chown -R USERNAME:USERNAME /home/USERNAME/
+```
 
 Set the new user's login shell to bash:
 
@@ -72,9 +73,11 @@ Set the new user's login shell to bash:
 
 ### 1.3 Update and hardening
 
-`sudo apt update`
-`sudo apt dist-upgrade`
-`sudo apt install -y unzip net-tools build-essential libssl-dev`
+```shell
+sudo apt update
+sudo apt dist-upgrade`
+sudo apt install -y unzip net-tools build-essential libssl-dev
+```
 
 #### Configure the firewall (ufw, the "uncomplicated firewall")
 
@@ -90,8 +93,10 @@ So, first disable the firewall:
 
 Set the defaults for incoming/outgoing ports:
 
-`sudo ufw default deny incoming`
-`sudo ufw default allow outgoing`
+```shell
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+```
 
 Open up the SSH port:
 
@@ -105,9 +110,10 @@ Check the ssh port:
 
 Turn the firewall back on:
 
-`sudo ufw enable`
-
-`sudo ufw status verbose`
+```shell
+sudo ufw enable
+sudo ufw status verbose
+```
 
 Make sure you see the ssh port in the allowed rules!
 
@@ -356,7 +362,7 @@ Edit a new `systemd` service file:
 
 Paste these contents into `althea-sentry.service`:
 
-_(remember, `SENTRY_USER` is the user you made earlier in this guide, when setting up Linux on the sentry node!)_
+_(remember, `SENTRY_USER` is the user that you [made earlier in this guide](#12-add-the-non-root-sentry-user), when setting up Linux on the sentry node!)_
 
 ```
 [Unit]
