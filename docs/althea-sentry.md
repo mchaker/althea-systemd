@@ -77,7 +77,7 @@ Set the new user's login shell to bash:
 
 ```shell
 sudo apt update
-sudo apt dist-upgrade`
+sudo apt dist-upgrade
 sudo apt install -y unzip net-tools build-essential libssl-dev
 ```
 
