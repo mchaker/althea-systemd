@@ -11,7 +11,7 @@ A Sentry node is a type of node that handles the traffic for a validator. As far
 
 _Note:_ The Sentry node must have its own IP address, and ideally be on a separate network (up/download line) from your other Sentries (ideally, geographically or globally distributed).
 
-* The own IP address is a requirement because the Sentry node needs to exist separately on the network from your other sentries.
+* The own IP address is a requirement because the Sentry node needs to exist separately on the Althea network from your other sentries.
 * The separate network is a requirement because that is what will help distribute the traffic/load on the Althea validator network.
 
 It **may** be possible to run a **cluster** of sentries behind one IP address using **Kubernetes**, however I have not tried that yet.
