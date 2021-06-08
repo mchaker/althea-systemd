@@ -161,13 +161,13 @@ Your CPU should have the `rdseed` instruction listed.
 Inbound (Sentry):
 
 * ssh (22 or whatever port you set for ssh on your Sentry) from anywhere: `sudo ufw allow from any to any port 22 proto tcp`
-* althea p2p (26656) from anywhere: `sudo ufw allow from any to any port 26656 proto tcp`
-* althea rpc (26657) from anywhere: `sudo ufw allow from any to any port 26657 proto tcp`
+* althea p2p (26656) from anywhere: `sudo ufw allow from any to any port 26656`
+* althea rpc (26657) from anywhere: `sudo ufw allow from any to any port 26657`
 
 Inbound (**Validator**) (⚠️ yes the validator needs specific ports open too!):
 
 * ssh (22 or whatever port you chose) from anywhere: `sudo ufw allow from any to any port 22 proto tcp`
-* althea p2p (26656) from **your sentry IP only**: `sudo ufw allow from SENTRY_IP to any port 26656 proto tcp`
+* althea p2p (26656) from **your sentry IP only**: `sudo ufw allow from SENTRY_IP to any port 26656`
 * Paul's Sentry guide mentions opening port 26657 to a "MONITORING NODE", but I don't know of any monitoring node for the Althea network. I might modify this guide in the future with more information about this as I learn more.
 
 ### 2.3 `config.toml` and `app.toml`
