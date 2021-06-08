@@ -4,6 +4,8 @@
 
 ➡️ This guide also assumes that you are not yet using the `althea-systemd` scripts in this repo (later steps of this guide edit files in `~/.althea/`, where if you **are** using the `althea-systemd` scripts, you would have to edit files in `~/.althea-bkp/` (or wherever you specified your cold storage directory)).
 
+ℹ️ **INFO:** After setting up a sentry node, if you run commands on your validator node (since that is where your keys will probably still be), you will probably need to add the `node` parameter to the commands. I have started adding the `node` parameter to every command that accepts it just in case. The `node` you will specify is any of your sentry nodes. For example: `althea q bank balances althea1xxxzzzfffcccyyykflyx0qqqq9xyypyxzzzzz --node "tcp://althea.example.net:26657"`
+
 _Adapted from [Paul Lovette](https://github.com/lightiv)'s [Linux Install guide](https://github.com/lightiv/SkyNet/wiki/Ubuntu-Linux-Install-Guide) and his [Akash Sentry setup guide](https://github.com/lightiv/SkyNet/wiki/Validator-Sentry-Setup-With-Best-Practice)_
 
 ## What is a Sentry node?
@@ -174,7 +176,7 @@ _Notes about values in these config files:_
 
 * `external_address` is an IP address or FQDN (FQDN/DNS records are recommended, since you can specify both IPv4 (A) and IPv6 (AAAA) records for the same name)
 * `private_peer_ids` can be acquired by running `althea tendermint show-node-id` on your **validator**, example: `23eeeeee84bbb701a34b1fffff09e79ccccc3aaa`
-* `persistent_peers` are _full addresses_, example: `23eeeeee84bbb701a34b1fffff09e79ccccc3aaa@althea.domain.net:26656,23effffe84bbbccca34b1aaaaa09e79bbbbb3ccc@althea.domain2.net:26656`
+* `persistent_peers` are _full addresses_, example: `23eeeeee84bbb701a34b1fffff09e79ccccc3aaa@althea.example.net:26656,23effffe84bbbccca34b1aaaaa09e79bbbbb3ccc@althea2.example.net:26656`
 * `unconditional_peer_ids` are Tendermint node IDs (hex values), which can be acquired by running `althea tendermint show-node-id` on **each** sentry/validator. Example: `23eeeeee84bbb701a34b1fffff09e79ccccc3aaa,23effffe84bbbccca34b1aaaaa09e79bbbbb3ccc`
 
 #### On your **sentry**, you need to set the following settings in `~/.althea/config/config.toml`:
@@ -374,6 +376,8 @@ sudo systemctl start althea-sentry.service
 You can check how many other nodes are connecting to your sentry with:
 
 `sudo netstat -na | grep 26656`
+
+ℹ️ **INFO:** Remember, after setting up a sentry node, if you run commands on your validator node (since that is where your keys will probably still be), you will probably need to add the `node` parameter to the commands. I have started adding the `node` parameter (e.g. `--node "tcp://althea.example.net:26657"` to every command that accepts it just in case. The `node` you will specify is any of your sentry nodes. For example: `althea q bank balances althea1xxxzzzfffcccyyykflyx0qqqq9xyypyxzzzzz --node "tcp://althea.example.net:26657"`
 
 ---
 
