@@ -193,10 +193,10 @@ prometheus = true
 prometheus_listen_addr = ":26660"
 ```
 
-#### On your **sentry**, you need to set the following setting in `~/.althea/config/app.toml`:
+#### On your **sentry**, you need to make sure the following setting is empty (for the testnet) in `~/.althea/config/app.toml`:
 
 ```toml
-minimum-gas-prices = "1ualtg"
+minimum-gas-prices = ""
 ```
 
 #### On your **validator**, you need to set the following settings in `config.toml`.
