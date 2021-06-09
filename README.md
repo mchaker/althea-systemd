@@ -8,7 +8,7 @@ systemd scripts for running an althea validator
 * Read the scripts (they are short) and adjust the binary locations and folders to match your setup
 
 ## `systemd` note about `/dev/shm/`
-* ⚠️ **Important note:** In order to safely use `/dev/shm/`, you need to make the following edits to `/etc/systemd/logind.conf`:
+⚠️ **Important note:** In order to safely use `/dev/shm/`, you need to make the following edits to `/etc/systemd/logind.conf`:
 
 Add the following line to `/etc/systemd/logind.conf`:
 
