@@ -7,6 +7,17 @@ systemd scripts for running an althea validator
 * These scripts were developed on and tested on one of the most recent versions of Ubuntu Server (specifically Ubuntu Server 20.10).
 * Read the scripts (they are short) and adjust the binary locations and folders to match your setup
 
+## `systemd` note about `/dev/shm/`
+* ⚠️ **Important note:** In order to safely use `/dev/shm/`, you need to make the following edits to `/etc/systemd/logind.conf`:
+
+Add the following line to `/etc/systemd/logind.conf`:
+
+`RemoveIPC=no`
+
+Save the file, then reboot the system. By default, `RemoveIPC` is `yes`, which means that periodically, `/dev/shm/` is cleaned up.
+
+Since these scripts use `/dev/shm/` to keep the Althea data in memory while running (optional, of course, but enabled by default in these scripts), we don't want `/dev/shm/` to periodically clean up.
+
 ## folder: `althea-scripts`
 Place the scripts from the `althea-scripts` folder into the folder where you want to keep your althea run scripts (not the systemd service files, those are separate).
 
