@@ -207,6 +207,7 @@ Stop the althea service/binary and edit `~/.althea/config/config.toml`, then sta
 pex = false
 max_open_connections = 3
 external_address = ""
+persistent_peers = "ALL_YOUR_SENTRIES_FULL_ADDRESSES" # These are combined hex values AND IP addresses/FQDNs!
 unconditional_peer_ids = "YOUR_VALIDATORS_AND_ALL_SENTRIES" # NOTE: These are TENDERMINT NODE IDs (hex value), NOT IP ADDRESSES!
 prometheus = true
 prometheus_listen_addr = ":26660"
