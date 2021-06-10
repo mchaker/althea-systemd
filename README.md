@@ -6,6 +6,7 @@ systemd scripts for running an althea validator
 ## Compatibility note
 * These scripts were developed on and tested on one of the most recent versions of Ubuntu Server (specifically Ubuntu Server 20.10).
 * Read the scripts (they are short) and adjust the binary locations and folders to match your setup
+* ⚠️ If you want to use the high-speed `/dev/shm/` approach (currently the default way, with the prep/cleanup scripts) to running althea, you will need **16GB RAM (or more, 24GB+ seems safe)**. That is because the prep script loads the entire `.althea/` directory into RAM while running althea.
 
 ## `systemd` note about `/dev/shm/`
 ⚠️ **Important note:** In order to safely use `/dev/shm/`, you need to make the following edits to `/etc/systemd/logind.conf`:
