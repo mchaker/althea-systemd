@@ -24,6 +24,14 @@ It **may** be possible to run a **cluster** of sentries behind one IP address us
 
 Get a new linux host (Linode, AWS LightSail, DigitalOcean, Vultr, whatever...) running at least Ubuntu 20.04.
 
+### Hardware Requirements: 
+
+* 2 GB RAM
+* 50 GB storage _(the althea data folder is almost 15GB at time of writing, so to be safe as the network grows I recommend a linode 2GB plan or higher)_
+* storage latency < 5ms
+
+ℹ️ Test storage latency with the `ioping` tool: `sudo ioping /dev/sdX -c5` where `/dev/sdX` is the device where your `.althea` data folder is mounted. Usually this is `/dev/sda`, but can be `/dev/mapper/ubuntu--vg-ubuntu--lv` on Ubuntu systems.
+
 ### 1.1 Set your hostname
 
 Sample values for the below commands:
@@ -126,14 +134,6 @@ Finally, reboot: `sudo reboot`
 # Part 2: Validator Sentry Setup
 
 _NOTE: I'm adapting the following instructions from the [official Althea fullnode setup instructions](https://github.com/althea-net/althea-chain/blob/main/docs/althea/althea-testnet-docs/setting-up-a-fullnode-manual.md), and Paul's Sentry instructions linked at the beginning of this document._
-
-Requirements: 
-
-* 2 GB RAM
-* 50 GB storage _(the althea data folder is almost 15GB at time of writing, so to be safe as the network grows I recommend a linode 2GB plan or higher)_
-* storage latency < 5ms
-
-ℹ️ Test storage latency with the `ioping` tool: `sudo ioping /dev/sdX -c5` where `/dev/sdX` is the device where your `.althea` data folder is mounted. Usually this is `/dev/sda`, but can be `/dev/mapper/ubuntu--vg-ubuntu--lv` on Ubuntu systems.
 
 ## Set up an Althea fullnode
 
