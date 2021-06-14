@@ -130,7 +130,10 @@ _NOTE: I'm adapting the following instructions from the [official Althea fullnod
 Requirements: 
 
 * 2 GB RAM
-* 20 GB storage
+* 50 GB storage _(the althea data folder is almost 15GB at time of writing, so to be safe as the network grows I recommend a linode 2GB plan or higher)_
+* storage latency < 5ms
+
+ℹ️ Test storage latency with the `ioping` tool: `sudo ioping /dev/sdX -c5` where `/dev/sdX` is the device where your `.althea` data folder is mounted. Usually this is `/dev/sda`, but can be `/dev/mapper/ubuntu--vg-ubuntu--lv` on Ubuntu systems.
 
 ## Set up an Althea fullnode
 
