@@ -8,10 +8,12 @@ Requires=geth.service
 User=altheauser
 #Environment="RUST_LOG=INFO"
 
+ExecStartPre=/bin/bash sleep 10
 # get parameters for gbt from the current althea github instructions
 ExecStart=/usr/bin/gbt -a althea orchestrator \
         --fees 125000ufootoken \
         --gravity-contract-address "GRAVITY_ADDRESS_HERE"
+ExecStopPost=/bin/bash sleep 10
 Restart=always
 RestartSec=5
 LimitNOFILE=1048575 # found from running: ulimit -Hn
