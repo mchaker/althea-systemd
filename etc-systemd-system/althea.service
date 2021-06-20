@@ -6,6 +6,7 @@ After=network-online.target
 #StandardOutput=null
 #StandardError=null
 #LogLevelMax=5
+TimeoutSec=240
 User=altheauser
 ExecStartPre=/bin/bash /home/altheauser/althea-scripts/prep-althea-ramdisk.sh
 ExecStart=/usr/bin/althea start \
