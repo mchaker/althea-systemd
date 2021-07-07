@@ -2,7 +2,7 @@
 
 **NOTE:** This guide assumes that you already have an Althea Validator set up and running. If you do not have that yet, [follow these instructions to set up an Althea Validator node](https://github.com/althea-net/althea-chain/blob/main/docs/althea/althea-testnet-docs/setting-up-a-validator-manual.md).
 
-➡️ This guide also assumes that you are not yet using the `althea-systemd` scripts in this repo (later steps of this guide edit files in `~/.althea/`, where if you **are** using the `althea-systemd` scripts, you would have to edit files in `~/.althea-bkp/` (or wherever you specified your cold storage directory)).
+➡️ This guide also assumes that you are not yet using the `althea-systemd` scripts in this repo (later steps of this guide edit files in `~/.althea/`, where if you **are** using the `althea-systemd` scripts, you would have to edit **validator** files in `~/.althea-bkp/` (or wherever you specified your **validator** cold storage directory)).
 
 ℹ️ **INFO:** After setting up a sentry node, if you run commands on your validator node (since that is where your keys will probably still be), you will probably need to add the `node` parameter to the commands. I have started adding the `node` parameter to every command that accepts it just in case. The `node` you will specify is any of your sentry nodes. For example: `althea q bank balances althea1xxxzzzfffcccyyykflyx0qqqq9xyypyxzzzzz --node "tcp://althea.example.net:26657"`
 
