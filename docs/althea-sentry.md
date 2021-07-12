@@ -151,6 +151,8 @@ _Note about the official docs:_ `mymoniker` is the name you have given your vali
 
 4. [Add seed node](https://github.com/althea-net/althea-chain/blob/main/docs/althea/althea-testnet-docs/setting-up-a-fullnode-manual.md#add-seed-node)
 
+5. [Increase open files limit](https://github.com/althea-net/althea-chain/blob/main/docs/althea/althea-testnet-docs/setting-up-a-validator-manual.md#increasing-the-default-open-files-limit)
+
 ## Configure the fullnode into a sentry node
 
 ### 2.1 Check CPU instruction set for `rdseed` instruction
